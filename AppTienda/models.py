@@ -9,7 +9,7 @@ class Clientes(models.Model):
 class Distribuidores(models.Model):
     nombre = models.CharField(max_length=128)
     apellido = models.CharField(max_length=128)
-    dirección = models.CharField(max_length=128)
+    direccion = models.CharField(max_length=128)
     email = models.EmailField()
 
 class PostVenta(models.Model):
