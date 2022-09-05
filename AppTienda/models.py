@@ -4,7 +4,7 @@ from django.db import models
 class Clientes(models.Model):
     nombre = models.CharField(max_length=128)
     apellido = models.CharField(max_length=128)
-    mail = models.EmailField()
+    email = models.EmailField()
 
 class Distribuidores(models.Model):
     nombre = models.CharField(max_length=128)
