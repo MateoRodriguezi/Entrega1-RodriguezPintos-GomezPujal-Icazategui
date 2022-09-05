@@ -10,11 +10,11 @@ from AppTienda.forms import *
 from AppTienda.forms import ClientesFormulario
 
 def clientes(request):
-    return render (request, 'AppTienda/clientes.html')
+    return render (request, 'AppTienda/clientes.html', {'clientes': clientes})
 
 
 def distribuidores(request):
-    return render (request, 'AppTienda/distribuidores.html')
+    return render (request, 'AppTienda/distribuidores.html', {'distribuidores': distribuidores})
 
 
 def inicio(request):
@@ -32,7 +32,7 @@ def clientes_formulario(request):
             data_1 = formulario_1.cleaned_data
             clientes = Clientes (nombre=data_1['nombre'], apellido=data_1['apellido'], email=data_1['email'])
             clientes.save()
-            return render(request, 'AppTienda/inicio.html')
+            return render(request, 'AppTienda/clientes.html', {"exitoso": True})
     else:
         print('entra aqui')
         formulario_1 = ClientesFormulario()
@@ -46,7 +46,7 @@ def distribuidores_formulario(request):
             data_2 = formulario_2.cleaned_data
             distribuidores = Distribuidores (nombre=data_2['nombre'], apellido=data_2['apellido'],direccion=data_2['direccion'] , email=data_2['email'])
             distribuidores.save()
-            return render(request, 'AppTienda/inicio.html')
+            return render(request, 'AppTienda/distribuidores.html', {"exitoso": True})
     else:
         print('entra aqui')
         formulario_2 = DistribuidoresFormulario()
@@ -60,7 +60,7 @@ def postventa_form(request):
             data_3 = formulario_3.cleaned_data
             postventa = PostVenta (nombre=data_3['nombre'], apellido=data_3['apellido'],email=data_3['email'] , fecha=data_3['fecha'], producto=data_3['producto'], descripcion_reclamo=data_3['descripcion_reclamo'] )
             postventa.save()
-            return render(request, 'AppTienda/inicio.html')
+            return render(request, 'AppTienda/postventa.html', {"exitoso": True})
     else:
         print('entra aqui')
         formulario_3 = PostVentaFormulario()

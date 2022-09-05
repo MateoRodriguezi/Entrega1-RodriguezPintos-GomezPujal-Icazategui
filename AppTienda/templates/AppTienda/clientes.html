@@ -2,6 +2,10 @@
 
 {% block contenido_base %}
 
+{% if exitoso %}
+<div> <h5><b>El cliente se creo exitosamente!</b></h5> </div>
+{% endif %}
+
 <h1><br> Clientes </h1>
 
 <a href="{% url 'Formulario Cliente' %}">CREAR NUEVO CLIENTE</a>

@@ -2,6 +2,10 @@
 
 {% block contenido_base %}
 
+{% if exitoso %}
+<div> <h5><b>Tu reclamo se envio con exito!</b></h5> </div>
+{% endif %}
+
 <h1><br> Postventa </h1>
 
 <a href="{% url 'Formulario Postventa' %}">CREAR POSTVENTA</a>
