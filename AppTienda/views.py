@@ -52,4 +52,18 @@ def distribuidores_formulario(request):
         formulario_2 = DistribuidoresFormulario()
         return render(request, 'AppTienda/form_distribuidores.html', {'formulario': formulario_2})
 
+def postventa_formulario(request):
+    print('entra a la funcion')
+    if request.method == 'POST':
+        formulario_3 = PostVentaFormulario(request.POST)
+        if formulario_3.is_valid():
+            data_3 = formulario_3.cleaned_data
+            postventa = PostVentaFormulario (nombre=data_3['nombre'], apellido=data_3['apellido'],email=data_3['email'], fecha=data_3['fecha'],producto=data_3['producto'],descripcion_reclamo=data_3['descripcion'])
+            postventa.save()
+            return render(request, 'AppTienda/inicio.html')
+    else:
+        print('entra aqui')
+        formulario_3 = PostVentaFormulario()
+        return render(request, 'AppTienda/form_postventa.html', {'formulario': formulario_3})
+
 # Create your views here.

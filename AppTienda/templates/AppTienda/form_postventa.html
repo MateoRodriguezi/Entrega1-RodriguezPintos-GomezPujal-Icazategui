@@ -1,0 +1,14 @@
+{% extends 'AppTienda/plantilla_base.html' %}
+{% block contenido_base %}
+       
+<form action=" " method="POST">{% csrf_token %}
+  
+    <table>  
+        {{ formulario.as_table }}
+    </table>
+
+    <input type="submit" value="Enviar">
+
+</form>
+
+{% endblock contenido_base %}
