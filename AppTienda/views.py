@@ -14,6 +14,7 @@ def clientes(request):
 
 
 def distribuidores(request):
+    distribuidores = Distribuidores.objects.all()
     return render (request, 'AppTienda/distribuidores.html', {'distribuidores': distribuidores})
 
 
@@ -65,5 +66,16 @@ def postventa_form(request):
         print('entra aqui')
         formulario_3 = PostVentaFormulario()
         return render(request, 'AppTienda/form_postventa.html', {'formulario': formulario_3})
+
+def busqueda_distribuidor(request):
+    return render(request,"AppTienda/busqueda_distribuidor.html")
+
+def buscar(request):
+    if request.GET["direccion"]:
+        direccion = request.GET["direccion"]
+        distribuidores = Distribuidores.objects.filter(direccion__icontains=direccion)
+        return render(request, 'AppTienda/distribuidores.html', {'distribuidores': distribuidores})
+    else:
+        return render(request, 'AppTienda/distribuidores.html', {'distribuidores': []})
 
 # Create your views here.

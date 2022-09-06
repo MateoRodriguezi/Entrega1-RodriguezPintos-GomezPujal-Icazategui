@@ -8,6 +8,16 @@
 
 <h1><br> Distribuidores </h1>
 
-<a href="{% url 'Formulario Distribuidores' %}">CREAR NUEVO DISTRIBUIDOR</a>
+<a href="{% url 'Formulario Distribuidores' %}">CREAR NUEVO DISTRIBUIDOR</a><br>
+<br>
+<a href="{% url 'Buscar Distribuidor' %}">BUSCAR DISTRIBUIDOR</a><br>
+
+<br><h3> Listado de distribuidores: </h3>
+
+{% for distribuidor in distribuidores %}
+
+    <br><span> Nombre: {{distribuidor.nombre}} {{distribuidor.apellido}} / Zona: {{distribuidor.direccion}} </span>
+
+{% endfor %}
 
 {% endblock contenido_base %}

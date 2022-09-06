@@ -1,0 +1,15 @@
+{% extends 'AppTienda/plantilla_base.html' %}
+
+{% block contenido_base %}
+
+<h1> Busqueda Distribuidores: </h1> 
+       
+<form action= "/tienda-virtual/buscar/" method="GET">
+    {% csrf_token %}
+    <span> Ubicación:
+        <input type="text" name="direccion">
+    </span>
+    <input type="submit" value="Buscar"/>
+</form>
+
+{% endblock contenido_base %}
